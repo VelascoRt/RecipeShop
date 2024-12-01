@@ -1,0 +1,20 @@
+h1 {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  font-size: 3em;
+}
+
+img {
+  height: 600px;
+  width: 450px;
+  margin-top: 150px;
+}
+
+button {
+  background-color: yellow;
+  color: white;
+  height: 40px;
+  width: 200px;
+
+}
