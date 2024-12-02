@@ -19,7 +19,7 @@ class Receta(models.Model):
     )
     tiempo_preparacion = models.IntegerField()
     precio = models.DecimalField(max_digits=6, decimal_places=2)
-    imagen_url = models.ImageField(upload_to='images/')
+    imagen_url = models.CharField(max_length= 1500)
     es_premium = models.BooleanField()
 
 class Compra(models.Model):

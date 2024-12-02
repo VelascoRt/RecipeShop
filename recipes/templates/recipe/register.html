@@ -17,22 +17,13 @@
       <div class="right-side">
         <h1>RECETAS</h1>
         <div class="tabs">
-          <button id= "login" class="active position-relative" onclick="loginShow()" data-url="{% url 'recipes:index' %}">Iniciar Sesión</button>
-          <button id ="register" class="position-relative" onclick="RegisterShow()" data-url="{% url 'recipes:register' %}">Registrarme</button>
+          <button id= "login" class="position-relative" onclick="loginShow()" data-url="{% url 'recipes:index' %}">Iniciar Sesión</button>
+          <button id ="register" class="active position-relative" onclick="RegisterShow()" data-url="{% url 'recipes:register' %}">Registrarme</button>
         </div>
-        <div id="loginTab">
-          <form id="login-form" method="POST" autocomplete="off">
-            <div class="mb-3">
-              {{loginform.as_p}}
-            {% csrf_token %}
-            <button type="submit" class="btn btn-warning w-100">Iniciar Sesión</button>
-            </div>
-          </form>
-          
           <div id ="registerTab" class="position-relative">
           <form id="register-form" method="POST" autocomplete="off">
             <div class="mb-3">
-              {{registerform.as_p}}
+            {{registerform.as_p}}
               {% csrf_token %}
               <button type="submit" class="btn btn-warning w-100 position-relative">Registrarse</button>
             </div>
@@ -92,7 +83,7 @@ function RegisterShow() {
 }
 
 
-hide(registerTab)
+hide(loginTab)
 
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

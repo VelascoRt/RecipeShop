@@ -9,6 +9,15 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
-  
+    {% if recipe_list %}
+    {% for recipe in recipe_list %}
+    <img src="{{ recipe.imagen_url }}" alt="Cupcake">
+    <li><a href="">{{ recipe.titulo }}</a></li>
+    {% endfor %}
+  {% else %}
+    <p>No hay recetas todavia</p>
+  {% endif %}
+  <br>
+  <a href = "{% url 'recipes:logout' %}">Logout</a>
   </body>
 </html>
