@@ -79,7 +79,7 @@ DATABASES = {
 'default': {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'recipes',
-    'USER': 'recipead',
+    'USER': 'recipeadmin',
     'PASSWORD': 'pass',
     'HOST': 'localhost',
     'PORT': '3306',
