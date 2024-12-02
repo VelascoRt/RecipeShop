@@ -3,15 +3,23 @@ GO
 SELECT * FROM recipes_receta;
 
 INSERT INTO recipes_receta(titulo,descripcion,categoria,dificultad,tiempo_preparacion,precio,imagen_url,es_premium) VALUES 
-("Postre De Crema De Bayas",
-"Este postre no solo tiene una presentación muy bonita, lo más importante es que está cargado con antioxidantes, fibra y proteína. Es también una perfecta opción para el desayuno, con 20 gramos de carbohidratos y 14 gramos de azúcar.",
+("Cupcake integral Con Toppings De Fresa Roja",
+"El término cupcake fue recogido por primera vez en el recetario de Eliza Leslie, Seventy-five Recipes for Pastry, Cakes, and Sweetmeats, publicado en 1828. La autora se refería a él como una tartaleta que se cocina en pequeñas tazas, aunque la imagen que acompañaba la receta coincidía con la que actualmente se conoce a este delicioso dulce: un pequeño bizcocho redondo - muy parecido a una magdalena- con una cubierta colorida y cremosa. Sobre el origen del nombre hay dos versiones, la primera versión es que se le dió el nombre porque se horneaban en tazas de barro individuales (taza es cup en inglés), la segunda versión sobre el origen del nombre lo vincula a la forma de calcular los ingredientes empleados en su elaboración (mantequilla, azúcar, huevos, levadura y harina) que se median por tazas.",
 "Postre",
+"Fácil",
+30,
+0,
+"https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+false
+),
+("Espaguetti a la boloñesa",
+"Esta deliciosa salsa roja, combina carne molida, zanahorias, apio, cebolla, tomates, y con un toque de leche para darle cremosidad. Esta salsa se cocina a fuego lento y se sirve deliciosamente sobre su pasta favorita.",
+"Platillo fuerte",
 "Media",
-2500,
-45.00,
-"https://images.pexels.com/photos/414262/pexels-photo-414262.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-true
-);
+15,
+0,
+"https://images.pexels.com/photos/28575312/pexels-photo-28575312/free-photo-of-espaguetis-a-la-bolonesa-tradicionales-con-ingredientes-frescos.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+true);
 /*
 titulo = models.CharField(max_length = 200)
     descripcion = models.TextField()
