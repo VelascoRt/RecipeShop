@@ -1,11 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from . forms import CreateUserForm, LoginForm
+from . forms import CreateUserForm, LoginForm, CompraForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import Receta, Compra, Pago
+from .models import Receta, Compra
+from django.conf import settings
+from cryptography.fernet import Fernet
+
+f = Fernet(settings.ENCRYPT_KEY)
 
 # Create your views here.
 def index(request):
@@ -40,6 +44,34 @@ def logout(request):
 
 @login_required(login_url="/")
 def home(request):
-    recipes = Receta.objects.all()
-    context = {"recipe_list" : recipes}
+    if request.method == "POST":
+        precio = request.POST.get("precio")
+        premium = request.POST.get("es_premium")
+        todas = request.POST.get("todas")
+        if precio is not None:
+            recipes = Receta.objects.filter(precio = precio)
+        elif premium is not None:
+            recipes = Receta.objects.filter(es_premium=premium)
+        else:
+            recipes = Receta.objects.all()
+        context = {"recipe_list" : recipes}
+        return render(request, "recipe/home.html", context)
+    else:
+        recipes = Receta.objects.all()
+        context = {"recipe_list" : recipes}
     return render(request, "recipe/home.html", context)
+
+@login_required(login_url="/")
+def detail(request,pk):
+    form = CompraForm(request.POST)
+    if form.is_valid():
+        form.instance.usuario_id = request.user
+        form.instance.receta_id = Receta.objects.get(id=pk)
+        form.instance.monto = Receta.objects.get(id=pk).precio
+        compra_id = pk
+        form.save()
+        return HttpResponseRedirect("/home")
+    else:
+        form = CompraForm()
+    recipe = get_object_or_404(Receta, pk = pk)
+    return render(request,"recipe/detail.html",{"recipe":recipe, "compraform":form})

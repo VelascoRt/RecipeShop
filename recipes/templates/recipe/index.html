@@ -15,7 +15,9 @@
         <img src="{% static 'img/cupcake.jpg' %}" alt="Cupcake">
       </div>
       <div class="right-side">
-        <h1>RECETAS</h1>
+        <div class="text-center">
+          <h1>RECETAS</h1>
+        </div>
         <div class="tabs">
           <button id= "login" class="active position-relative" onclick="loginShow()" data-url="{% url 'recipes:index' %}">Iniciar Sesión</button>
           <button id ="register" class="position-relative" onclick="RegisterShow()" data-url="{% url 'recipes:register' %}">Registrarme</button>

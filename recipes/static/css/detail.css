@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+img {
+    width: 800px;
+    height: 800px;
+}
+
+.logout {
+    height: 75px;
+    width: 75px;
+}
+
+a {
+    font-family: "Inter", sans-serif !important;
+    background-color: None;
+    font-optical-sizing: auto;
+    font-weight: 400 !important;
+    font-style: normal;
+    font-size: 1.5rem !important;
+    margin: 0px;
+}
+
+button text{
+    font-size: 1.5em !important;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}

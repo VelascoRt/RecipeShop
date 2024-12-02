@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Receta(models.Model):
     titulo = models.CharField(max_length = 200)
     descripcion = models.TextField()
@@ -27,20 +28,22 @@ class Compra(models.Model):
     receta_id = models.ForeignKey(Receta,on_delete=models.CASCADE)
     monto = models.DecimalField(max_digits=6,decimal_places=2)
     fecha = models.DateTimeField(auto_now_add=True, blank=True)
-    class Estado(models.TextChoices):
-        PENDIENTE = 'Pendiente'
-        COMPLETADO = 'Completado'
-        def getEstado(self):
-            return self.Estado(self.estado)
-    estado = models.CharField(
-        max_length = 10,
-        choices = Estado.choices,
-        default = Estado.PENDIENTE,
+    class MetodoPago(models.TextChoices):
+        PAYPAL = 'Paypal'
+        VISA = 'Visa'
+        MASTERCARD = 'Mastercard'
+        AMERICAN_EXPRESS = 'American express'
+        def getMetodoPago(self):
+            return self.MetodoPago(self.metodo_pago)
+    metodo_pago = models.CharField(
+        max_length = 20,
+        choices = MetodoPago.choices,
+        default = MetodoPago.VISA,
     )
 
 # class MetodoPago(Models.Model):
     # nombre = models.CharField(max_length=25)
-
+"""
 class Pago(models.Model):
     compra_id = models.ForeignKey(Compra,on_delete=models.CASCADE)
     class MetodoPago(models.TextChoices):
@@ -55,4 +58,4 @@ class Pago(models.Model):
         choices = MetodoPago.choices,
         default = MetodoPago.VISA,
     )
-
+"""
