@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from . forms import CreateUserForm, LoginForm, CompraForm
+from . forms import CreateUserForm, LoginForm, CompraForm, RecetaForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
@@ -75,3 +75,14 @@ def detail(request,pk):
         form = CompraForm()
     recipe = get_object_or_404(Receta, pk = pk)
     return render(request,"recipe/detail.html",{"recipe":recipe, "compraform":form})
+
+@login_required(login_url="/")
+def create(request):
+    form = RecetaForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/home")
+    else:
+        form = RecetaForm()
+    return render(request,"recipe/create.html",{"recetaform":form})
+

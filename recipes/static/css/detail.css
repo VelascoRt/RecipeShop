@@ -10,7 +10,16 @@ img {
     width: 75px;
 }
 
-a {
+h1 {
+    font-family: "Inter", sans-serif !important;
+    background-color: None;
+    font-optical-sizing: auto;
+    font-weight: 400 !important;
+    font-style: normal;
+    font-size: 1.5rem !important;
+}
+
+a{
     font-family: "Inter", sans-serif !important;
     background-color: None;
     font-optical-sizing: auto;

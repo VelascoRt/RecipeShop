@@ -20,14 +20,16 @@
           <div class="col md-2">
             <button type="submit" class="button btn fs-4"  value="True" name="es_premium" selected>ES PREMIUM </button>
           </div>
+
           <div class="col md-2">
-            <button type="submit" class="button btn fs-4" value="True" name="todas" selected>TODAS</button
+            <button type="submit" class="button btn fs-4" value="True" name="todas" selected>TODAS</button>
           </div>
-          {% comment %}
+          
           <div class="col md-2">
-            <button class="button btn fs-4" selected><a class="link-underline-dark link-body-emphasis text-decoration-none" href="{% url 'recipes:index' %}">PUBLICAR RECETA</a></button  POR ALGUNA RAZÓN SI CIERRAS EL DE BUTTON SE ROMPE EL DISEÑO DE LA PÁGINA PERO SI LO DEJAS ASÍ ABIERTO NO, NO SÉ PORQUE 
-          </div>
+            <button class="button btn fs-4" selected><a class="link-underline-dark link-body-emphasis text-decoration-none" href="{% url 'recipes:create' %}">PUBLICAR RECETA</a></button  {% comment %}POR ALGUNA RAZÓN SI CIERRAS EL DE BUTTON SE ROMPE EL DISEÑO DE LA PÁGINA PERO SI LO DEJAS ASÍ ABIERTO NO, NO SÉ PORQUE 
           {% endcomment %}
+          </div>
+          
           <div class="position-absolute end-0 top-0 m-5">
             <a href="{% url 'recipes:logout' %}" class="logout"><img class="logout" src="{%static 'img/logout.png' %}" alt="logout"></a>
           </div>
